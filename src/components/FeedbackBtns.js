@@ -1,18 +1,20 @@
+import { Title, List, Button, ListItem } from "components/FeedbackBtns.styled";
+
 const FeedbackBtns = () => {
   return (
     <div>
-      <h2>Please leave feedback</h2>
-      <ul>
-        <li>
-          <button type="button">Good</button>
-        </li>
-        <li>
-          <button type="button">Neutral</button>
-        </li>
-        <li>
-          <button type="button">Bad</button>
-        </li>
-      </ul>
+      <Title>Please leave feedback</Title>
+      <List>
+        <ListItem>
+          <Button type="button">Good</Button>
+        </ListItem>
+        <ListItem>
+          <Button type="button">Neutral</Button>
+        </ListItem>
+        <ListItem>
+          <Button type="button">Bad</Button>
+        </ListItem>
+      </List>
     </div>
   );
 };
