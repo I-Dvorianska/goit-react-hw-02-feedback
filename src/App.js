@@ -1,25 +1,24 @@
-import logo from "./logo.svg";
 import "./App.css";
+import { Component } from "react";
+import FeedbackBtns from "components/FeedbackBtns";
+import Statistics from "components/Statistics";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
+
+  render() {
+    const { good, neutral, bad } = this.state;
+    return (
+      <>
+        <FeedbackBtns />
+        <Statistics data={{ good, neutral, bad }} />
+      </>
+    );
+  }
 }
 
 export default App;
