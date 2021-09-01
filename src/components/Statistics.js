@@ -1,19 +1,21 @@
 import PropTypes from "prop-types";
 import { List, Title, Text } from "./Statistics.styled";
 
-const Statistics = ({ good, neutral, bad }) => {
+const Statistics = ({ data }) => {
+  const { good, neutral, bad } = data;
+
   return (
     <div>
       <Title>Statistics</Title>
       <List>
         <li>
-          <Text>Good:{good}</Text>
+          <Text>Good: {good}</Text>
         </li>
         <li>
-          <Text>Neutral:{neutral}</Text>
+          <Text>Neutral: {neutral}</Text>
         </li>
         <li>
-          <Text>Bad:{bad}</Text>
+          <Text>Bad: {bad}</Text>
         </li>
       </List>
     </div>

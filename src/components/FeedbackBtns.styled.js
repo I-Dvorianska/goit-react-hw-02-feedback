@@ -20,10 +20,10 @@ export const Button = styled.button`
   padding: 6px;
   border-style: dotted;
   border-radius: 4px;
+  border-width: 1px;
   &:hover {
     cursor: pointer;
     background-color: #b1d4e0;
     border-color: #b1d4e0;
-    border-width: 2px;
   }
 `;

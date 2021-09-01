@@ -10,15 +10,39 @@ class App extends Component {
     bad: 0,
   };
 
+  incrementGood = (value) => {
+    if (value === "good") {
+      this.setState((prevState) => {
+        return {
+          good: prevState.good + 1,
+        };
+      });
+    }
+
+    if (value === "neutral") {
+      this.setState((prevState) => {
+        return {
+          neutral: prevState.neutral + 1,
+        };
+      });
+    }
+
+    if (value === "bad") {
+      this.setState((prevState) => {
+        return {
+          bad: prevState.bad + 1,
+        };
+      });
+    }
+  };
+
   render() {
-    const { good, neutral, bad } = this.state;
     return (
       <>
-        <FeedbackBtns />
-        <Statistics data={{ good, neutral, bad }} />
+        <FeedbackBtns incrementGood={this.incrementGood} />
+        <Statistics data={this.state} />
       </>
     );
   }
 }
-
 export default App;
