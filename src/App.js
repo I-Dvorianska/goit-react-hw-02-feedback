@@ -36,7 +36,7 @@ class App extends Component {
     }
   };
 
-  totalCount = () => {
+  countTotalFeedback = () => {
     const values = Object.values(this.state);
 
     return values.reduce((total, num) => {
@@ -45,11 +45,22 @@ class App extends Component {
     }, 0);
   };
 
+  countPositiveFeedbackPercentage = (total) => {
+    if (total === 0) {
+      return 0;
+    }
+    return Math.ceil((this.state.good / total) * 100);
+  };
+
   render() {
     return (
       <>
         <FeedbackBtns incrementGood={this.incrementGood} />
-        <Statistics data={this.state} total={this.totalCount()} />
+        <Statistics
+          data={this.state}
+          total={this.countTotalFeedback()}
+          positivePercentage={this.countPositiveFeedbackPercentage}
+        />
       </>
     );
   }

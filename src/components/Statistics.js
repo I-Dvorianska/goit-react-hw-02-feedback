@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { List, Title, Text } from "./Statistics.styled";
 
-const Statistics = ({ data, total }) => {
+const Statistics = ({ data, total, positivePercentage }) => {
   const { good, neutral, bad } = data;
 
   return (
@@ -19,6 +19,9 @@ const Statistics = ({ data, total }) => {
         </li>
         <li>
           <Text>Total: {total}</Text>
+        </li>
+        <li>
+          <Text>Positive Feedback: {positivePercentage(total)}%</Text>
         </li>
       </List>
     </div>
