@@ -3,6 +3,7 @@ import { Component } from "react";
 import FeedbackBtns from "components/FeedbackBtns";
 import Statistics from "components/Statistics";
 import Section from "./components/Section";
+import NotificationMessage from "components/NotificationMessage";
 
 class App extends Component {
   state = {
@@ -54,19 +55,30 @@ class App extends Component {
   };
 
   render() {
+    const {
+      incrementGood,
+      state,
+      countTotalFeedback,
+      countPositiveFeedbackPercentage,
+    } = this;
+
+    const totalFeedback = countTotalFeedback();
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackBtns incrementGood={this.incrementGood} />
+          <FeedbackBtns incrementGood={incrementGood} />
         </Section>
-
-        <Section title="Statistics">
-          <Statistics
-            data={this.state}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage}
-          />
-        </Section>
+        {totalFeedback === 0 ? (
+          <NotificationMessage message="No feedback given" />
+        ) : (
+          <Section title="Statistics">
+            <Statistics
+              data={state}
+              total={totalFeedback}
+              positivePercentage={countPositiveFeedbackPercentage}
+            />
+          </Section>
+        )}
       </>
     );
   }
