@@ -36,11 +36,20 @@ class App extends Component {
     }
   };
 
+  totalCount = () => {
+    const values = Object.values(this.state);
+
+    return values.reduce((total, num) => {
+      total += num;
+      return total;
+    }, 0);
+  };
+
   render() {
     return (
       <>
         <FeedbackBtns incrementGood={this.incrementGood} />
-        <Statistics data={this.state} />
+        <Statistics data={this.state} total={this.totalCount()} />
       </>
     );
   }
