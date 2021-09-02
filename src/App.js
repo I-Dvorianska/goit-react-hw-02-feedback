@@ -2,6 +2,7 @@ import "./App.css";
 import { Component } from "react";
 import FeedbackBtns from "components/FeedbackBtns";
 import Statistics from "components/Statistics";
+import Section from "./components/Section";
 
 class App extends Component {
   state = {
@@ -55,12 +56,17 @@ class App extends Component {
   render() {
     return (
       <>
-        <FeedbackBtns incrementGood={this.incrementGood} />
-        <Statistics
-          data={this.state}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage}
-        />
+        <Section title="Please leave feedback">
+          <FeedbackBtns incrementGood={this.incrementGood} />
+        </Section>
+
+        <Section title="Statistics">
+          <Statistics
+            data={this.state}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage}
+          />
+        </Section>
       </>
     );
   }

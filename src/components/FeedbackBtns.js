@@ -1,10 +1,9 @@
-import { Title, List, Button, ListItem } from "components/FeedbackBtns.styled";
+import { List, Button, ListItem } from "components/FeedbackBtns.styled";
 import PropTypes from "prop-types";
 
 const FeedbackBtns = ({ incrementGood }) => {
   return (
     <div>
-      <Title>Please leave feedback</Title>
       <List>
         <ListItem>
           <Button
