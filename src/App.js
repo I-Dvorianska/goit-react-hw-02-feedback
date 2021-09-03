@@ -13,29 +13,11 @@ class App extends Component {
   };
 
   incrementGood = (value) => {
-    if (value === "good") {
-      this.setState((prevState) => {
-        return {
-          good: prevState.good + 1,
-        };
-      });
-    }
-
-    if (value === "neutral") {
-      this.setState((prevState) => {
-        return {
-          neutral: prevState.neutral + 1,
-        };
-      });
-    }
-
-    if (value === "bad") {
-      this.setState((prevState) => {
-        return {
-          bad: prevState.bad + 1,
-        };
-      });
-    }
+    this.setState((prevState) => {
+      return {
+        [value]: prevState[value] + 1,
+      };
+    });
   };
 
   countTotalFeedback = () => {
@@ -66,7 +48,10 @@ class App extends Component {
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackBtns incrementGood={incrementGood} />
+          <FeedbackBtns
+            incrementGood={incrementGood}
+            options={["good", "neutral", "bad"]}
+          />
         </Section>
         {totalFeedback === 0 ? (
           <NotificationMessage message="No feedback given" />

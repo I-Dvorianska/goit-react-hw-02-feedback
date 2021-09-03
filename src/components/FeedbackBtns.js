@@ -1,40 +1,24 @@
 import { List, Button, ListItem } from "components/FeedbackBtns.styled";
 import PropTypes from "prop-types";
 
-const FeedbackBtns = ({ incrementGood }) => {
+const FeedbackBtns = ({ incrementGood, options }) => {
   return (
     <div>
       <List>
-        <ListItem>
-          <Button
-            type="button"
-            onClick={() => {
-              incrementGood("good");
-            }}
-          >
-            Good
-          </Button>
-        </ListItem>
-        <ListItem>
-          <Button
-            type="button"
-            onClick={() => {
-              incrementGood("neutral");
-            }}
-          >
-            Neutral
-          </Button>
-        </ListItem>
-        <ListItem>
-          <Button
-            type="button"
-            onClick={() => {
-              incrementGood("bad");
-            }}
-          >
-            Bad
-          </Button>
-        </ListItem>
+        {options.map((el) => {
+          return (
+            <ListItem key={el}>
+              <Button
+                type="button"
+                onClick={() => {
+                  incrementGood(el);
+                }}
+              >
+                {el}
+              </Button>
+            </ListItem>
+          );
+        })}
       </List>
     </div>
   );
